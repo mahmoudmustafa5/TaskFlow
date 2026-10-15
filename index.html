@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow - A simple and calm task management app.">
+  <title>TaskFlow | My Tasks</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <a href="#" class="logo"><span class="logo-icon">✓</span> TaskFlow</a>
+
+      <p class="nav-label">WORKSPACE</p>
+      <nav>
+        <a href="#dashboard" class="nav-link active">▦ <span>Dashboard</span></a>
+        <a href="#tasks" class="nav-link">☷ <span>My Tasks</span></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="profile-avatar">M</div>
+        <div>
+          <strong>My Workspace</strong>
+          <small>Personal planner</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+          <h1>My Dashboard</h1>
+          <p class="subtitle">A little progress every day adds up.</p>
+        </div>
+        <span class="today-badge" id="today-date">Today</span>
+      </header>
+
+      <section class="stats-grid" aria-label="Task statistics">
+        <article class="stat-card">
+          <span class="stat-label">Total tasks</span>
+          <strong class="stat-number" id="total-count">0</strong>
+          <span class="stat-note">All your tasks</span>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-label">Completed</span>
+          <strong class="stat-number green-text" id="completed-count">0</strong>
+          <span class="stat-note">Tasks you've finished</span>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-label">Pending</span>
+          <strong class="stat-number" id="pending-count">0</strong>
+          <span class="stat-note">Still to be done</span>
+        </article>
+      </section>
+
+      <section class="progress-card">
+        <div class="progress-heading">
+          <div>
+            <h2>Your progress</h2>
+            <p>Keep going, you're doing great.</p>
+          </div>
+          <strong id="progress-percent">0%</strong>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </section>
+
+      <section class="tasks-section" id="tasks">
+        <div class="section-heading">
+          <div>
+            <h2>My Tasks</h2>
+            <p>Organize your day, one task at a time.</p>
+          </div>
+          <button class="primary-button" id="open-form">+ Add task</button>
+        </div>
+
+        <form class="task-form hidden" id="task-form">
+          <label for="task-title">Task name</label>
+          <input id="task-title" type="text"
+            placeholder="e.g. Practice JavaScript" maxlength="100" required>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="task-priority">Priority</label>
+              <select id="task-priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="task-date">Due date</label>
+              <input id="task-date" type="date">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="secondary-button" type="button" id="cancel-form">Cancel</button>
+            <button class="primary-button" type="submit" id="submit-task">Save task</button>
+          </div>
+        </form>
+
+        <div class="filter-bar" aria-label="Filter tasks">
+          <button class="filter-button active" data-filter="all">All tasks</button>
+          <button class="filter-button" data-filter="pending">Pending</button>
+          <button class="filter-button" data-filter="completed">Completed</button>
+        </div>
+
+        <div class="task-list" id="task-list" aria-live="polite"></div>
+      </section>
+
+      <footer>
+        <p>Made with care · TaskFlow</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
